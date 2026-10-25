@@ -1,0 +1,16 @@
+[ req ]
+default_bits = 2048
+default_md = sha256
+prompt = no
+encrypt_key = no
+distinguished_name = dn
+
+[ logging-server ]
+subjectAltName = IP:192.168.96.3
+extendedKeyUsage = serverAuth
+
+[ dn ]
+O = vault
+OU = oso
+CN = 192.168.96.3
+

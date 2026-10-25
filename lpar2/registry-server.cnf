@@ -1,0 +1,15 @@
+[ req ]
+default_bits = 2048
+default_md = sha256
+prompt = no
+encrypt_key = no
+distinguished_name = dn
+
+[ registry-server ]
+subjectAltName = DNS:registry.control12.${ENV::DOMAIN}, DNS:registry.control23.${ENV::DOMAIN}, IP:192.168.0.2, IP:192.168.64.2, IP:192.168.64.3, IP:192.168.96.3, DNS:osoregistry.${ENV::DOMAIN}, DNS:registry.${ENV::DOMAIN}, DNS:osoregistry, DNS:registry
+extendedKeyUsage = serverAuth
+
+[ dn ]
+O = vault
+OU = oso
+CN = registry.${ENV::DOMAIN}

@@ -1,0 +1,19 @@
+[Unit]
+Description=Registry service
+After=network.target
+
+[Service]
+Type=simple
+User=registry
+Group=registry
+WorkingDirectory=/home/registry/
+ExecStart=/usr/bin/registry serve config.yml
+AmbientCapabilities=CAP_NET_BIND_SERVICE 
+Restart=always
+Environment="OTEL_METRICS_EXPORTER=none"
+Environment="OTEL_TRACES_EXPORTER=none"
+Environment="OTEL_LOGS_EXPORTER=none"
+
+[Install]
+WantedBy=multi-user.target
+

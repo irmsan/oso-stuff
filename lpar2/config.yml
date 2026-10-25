@@ -1,0 +1,30 @@
+version: 0.1
+log:
+  level: error
+  fields:
+    service: registry
+tracing:
+  enabled: false
+storage:
+  delete:
+    enabled: true
+  cache:
+    blobdescriptor: inmemory
+  filesystem:
+    rootdirectory: /home/registry/data
+http:
+  addr: :443
+  tls:
+    certificate: /home/registry/conf/server.crt
+    key: /home/registry/conf/server-key.pem
+  headers:
+    X-Content-Type-Options: [nosniff]
+auth:
+  htpasswd:
+    realm: "Registry Realm"
+    path: /home/registry/conf/htpasswd
+health:
+  storagedriver:
+    enabled: true
+    interval: 10s
+    threshold: 3
