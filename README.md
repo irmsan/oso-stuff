@@ -43,7 +43,4 @@ journalctl -u rsyslog -n 50 --no-pager | grep -iE 'relp|tls|gnutls|error|fail'
 
 
 
-openssl s_client -connect 192.168.64.2:6517 \
-    -CAfile /logging/lpar2-ca.crt \
-    -cert /logging/lpar2-client.crt \
-    -key /logging/lpar2-client-key.pem
+openssl s_client -connect 192.168.64.2:6517     -CAfile /logging/lpar2-ca.crt     -cert /logging/lpar2-client.crt     -key /logging/lpar2-client-key.pem
