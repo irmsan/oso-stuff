@@ -15,3 +15,16 @@ timeout 3 bash -c "</dev/tcp/192.168.64.2/6517" && echo "Connection OK"
 
 LPAR2-ről LPAR1-re (port 6517):
 timeout 3 bash -c "</dev/tcp/192.168.0.1/6517" && echo "Connection OK"
+
+
+
+
+LPAR1-en (reveiver):
+firewall-cmd --permanent --add-port=6514/tcp
+firewall-cmd --permanent --add-port=6517/tcp
+firewall-cmd --reload
+
+LPAR2-n (sender receiver:
+firewall-cmd --permanent --add-port=6514/tcp
+firewall-cmd --permanent --add-port=6517/tcp
+firewall-cmd --reload
