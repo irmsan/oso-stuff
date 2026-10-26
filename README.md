@@ -34,3 +34,9 @@ firewall-cmd --permanent --add-port=6514/tcp
 firewall-cmd --permanent --add-port=6517/tcp
 
 firewall-cmd --reload
+
+
+
+
+
+journalctl -u rsyslog -n 50 --no-pager | grep -iE 'relp|tls|gnutls|error|fail'
